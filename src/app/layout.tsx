@@ -23,6 +23,7 @@ export default function RootLayout({
             <Link href="/">Animations</Link>
             <Link href="/variants">Variants</Link>
             <Link href="/scroll">Scroll</Link>
+            <Link href="/keyframes">Keyframes</Link>
           </nav>
           <main className="flex grow flex-col items-center justify-center">
             {children}
