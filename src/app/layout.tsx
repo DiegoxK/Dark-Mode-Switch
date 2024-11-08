@@ -17,12 +17,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="flex h-screen flex-col justify-center">
+      <body className="flex min-h-screen flex-col justify-center">
         <TRPCReactProvider>
           <nav className="flex gap-2 p-4">
-            <Link href="/">1</Link>
-            <Link href="/2">2</Link>
-            <Link href="/3">3</Link>
+            <Link href="/">Animations</Link>
+            <Link href="/variants">Variants</Link>
+            <Link href="/scroll">Scroll</Link>
           </nav>
           <main className="flex grow flex-col items-center justify-center">
             {children}
