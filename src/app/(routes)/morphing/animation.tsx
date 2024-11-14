@@ -4,7 +4,7 @@ import * as motion from "framer-motion/client";
 import { interpolate } from "flubber";
 import { useEffect, useState } from "react";
 import { animate, useMotionValue, useTransform } from "framer-motion";
-import { getIndex, useFlubber } from "../hooks/use-flubber";
+import { getIndex, useFlubber } from "../../hooks/use-flubber";
 
 import { star, heart, hand, plane, lightning, note } from "./paths";
 
