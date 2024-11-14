@@ -25,6 +25,7 @@ export default function RootLayout({
             <Link href="/scroll">Scroll</Link>
             <Link href="/keyframes">Keyframes</Link>
             <Link href="/morphing">Morphing</Link>
+            <Link href="/switch">Switch</Link>
           </nav>
           <main className="flex grow flex-col items-center justify-center">
             {children}
