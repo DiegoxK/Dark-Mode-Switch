@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import * as motion from "framer-motion/client";
 import { useState } from "react";
@@ -19,23 +20,19 @@ export default function Home() {
 
   const bgVariants = {
     on: {
-      backgroundColor: twColors.red[300],
-      transition: { duration: 2 },
+      backgroundColor: twColors.rose[300],
     },
     off: {
-      backgroundColor: twColors.yellow[300],
-      transition: { duration: 2 },
+      backgroundColor: twColors.purple[300],
     },
   };
 
   const frVariants = {
     on: {
-      backgroundColor: twColors.red[500],
-      transition: { duration: 2 },
+      backgroundColor: twColors.rose[500],
     },
     off: {
-      backgroundColor: twColors.yellow[500],
-      transition: { duration: 2 },
+      backgroundColor: twColors.purple[500],
     },
   };
 
