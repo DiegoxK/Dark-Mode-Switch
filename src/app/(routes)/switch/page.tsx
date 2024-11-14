@@ -3,6 +3,11 @@ import { cn } from "@/lib/utils";
 import * as motion from "framer-motion/client";
 import { useState } from "react";
 
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "tailwind.config";
+
+const twColors = resolveConfig(tailwindConfig).theme.colors;
+
 export default function Home() {
   const [isOn, setIsOn] = useState(false);
 
@@ -12,28 +17,49 @@ export default function Home() {
     });
   };
 
-  const spring = {
-    type: "spring",
-    stiffness: 600,
-    damping: 37,
+  const bgVariants = {
+    on: {
+      backgroundColor: twColors.red[300],
+      transition: { duration: 2 },
+    },
+    off: {
+      backgroundColor: twColors.yellow[300],
+      transition: { duration: 2 },
+    },
+  };
+
+  const frVariants = {
+    on: {
+      backgroundColor: twColors.red[500],
+      transition: { duration: 2 },
+    },
+    off: {
+      backgroundColor: twColors.yellow[500],
+      transition: { duration: 2 },
+    },
   };
 
   return (
-    <div
+    <motion.div
+      variants={bgVariants}
+      animate={isOn ? "on" : "off"}
       onClick={toggleSwitch}
       className={cn(
         "flex w-[100px] cursor-pointer rounded-full",
-        isOn ? "justify-end bg-blue-100" : "justify-start bg-red-100",
+        isOn ? "justify-end" : "justify-start",
       )}
     >
       <motion.div
         layout
-        transition={spring}
-        className={cn(
-          "m-[6px] h-10 w-10 rounded-full",
-          isOn ? "bg-blue-400" : "bg-red-400",
-        )}
+        variants={frVariants}
+        animate={isOn ? "on" : "off"}
+        transition={{
+          type: "spring",
+          stiffness: 600,
+          damping: 37,
+        }}
+        className={cn("m-[6px] h-10 w-10 rounded-full")}
       ></motion.div>
-    </div>
+    </motion.div>
   );
 }
