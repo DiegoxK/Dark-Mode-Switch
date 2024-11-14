@@ -22,14 +22,17 @@ export default function Home() {
     <div
       onClick={toggleSwitch}
       className={cn(
-        "flex w-[100px] cursor-pointer rounded-full bg-blue-100",
-        isOn ? "justify-end" : "justify-start",
+        "flex w-[100px] cursor-pointer rounded-full",
+        isOn ? "justify-end bg-blue-100" : "justify-start bg-red-100",
       )}
     >
       <motion.div
         layout
         transition={spring}
-        className="m-[6px] h-10 w-10 rounded-full bg-blue-400"
+        className={cn(
+          "m-[6px] h-10 w-10 rounded-full",
+          isOn ? "bg-blue-400" : "bg-red-400",
+        )}
       ></motion.div>
     </div>
   );
