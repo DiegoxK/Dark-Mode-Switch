@@ -10,6 +10,7 @@ export default async function Home() {
         borderRadius: ["20%", "20%", "50%", "50%", "20%"],
         transition: {
           duration: 3,
+          // times: [0, 0.1, 0.8, 0.9, 1],
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut",
