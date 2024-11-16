@@ -23,7 +23,7 @@ export default function Home() {
       backgroundColor: twColors.rose[300],
     },
     off: {
-      backgroundColor: twColors.purple[300],
+      backgroundColor: twColors.slate[300],
     },
   };
 
@@ -32,7 +32,7 @@ export default function Home() {
       backgroundColor: twColors.rose[500],
     },
     off: {
-      backgroundColor: twColors.purple[500],
+      backgroundColor: twColors.slate[500],
     },
   };
 
