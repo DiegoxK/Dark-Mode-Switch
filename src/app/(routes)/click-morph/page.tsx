@@ -29,18 +29,18 @@ export default function FigureAnimation() {
       velocity === 0 ? (current === 0 ? 1 : 0) : velocity > 0 ? 0 : 1;
 
     animate(state, target, {
-      duration: 0.8,
-      ease: "easeInOut",
+      duration: 0.4,
+      ease: "circInOut",
     });
   };
 
   return (
     <div>
       <svg
-        onClick={toggleAnimation}
         width="200"
         height="200"
         viewBox="2 2 20 20"
+        onClick={toggleAnimation}
       >
         {/* @ts-expect-error *** */}
         <motion.path fill="#13944f" d={figure} />
