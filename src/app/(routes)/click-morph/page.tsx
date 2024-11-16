@@ -64,6 +64,7 @@ export default function FigureAnimation() {
         height="200"
         viewBox="2 2 20 20"
       >
+        {/* @ts-expect-error *** */}
         <motion.path fill="#13944f" d={figure} />
       </svg>
     </div>

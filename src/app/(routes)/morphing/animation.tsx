@@ -44,9 +44,8 @@ export default function FigureAnimation() {
 
   return (
     <svg width="400" height="400">
-      {/* <g transform="translate(10 10) scale(17 17)"> */}
+      {/* @ts-expect-error *** */}
       <motion.path fill={fill} d={path} />
-      {/* </g> */}
     </svg>
   );
 }
