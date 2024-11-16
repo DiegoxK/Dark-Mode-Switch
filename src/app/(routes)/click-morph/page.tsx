@@ -1,18 +1,9 @@
 "use client";
 
-import * as motion from "framer-motion/client";
-import { heart, star } from "../morphing/paths";
-import {
-  animate,
-  cubicBezier,
-  easeIn,
-  MotionValue,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
-
+import { animate, useMotionValue, useTransform } from "framer-motion";
 import { interpolate } from "flubber";
-import { useEffect, useState } from "react";
+import { heart, star } from "../morphing/paths";
+import * as motion from "framer-motion/client";
 
 export default function FigureAnimation() {
   const state = useMotionValue(0);
@@ -20,6 +11,7 @@ export default function FigureAnimation() {
   const input = [0, 1];
   const output = [heart, star];
 
+  // Create the figure transformation using flubber's interpolate function
   const figure = useTransform(state, input, output, {
     mixer: (a, b) =>
       interpolate(a, b, {
@@ -27,39 +19,25 @@ export default function FigureAnimation() {
       }),
   });
 
+  // Function to toggle animation state
+  const toggleAnimation = () => {
+    const current = state.get();
+    const velocity = state.getVelocity();
+
+    // Determine target state based on velocity or current state
+    const target =
+      velocity === 0 ? (current === 0 ? 1 : 0) : velocity > 0 ? 0 : 1;
+
+    animate(state, target, {
+      duration: 0.8,
+      ease: "easeInOut",
+    });
+  };
+
   return (
     <div>
       <svg
-        onClick={() => {
-          const velocity = state.getVelocity();
-
-          if (!velocity) {
-            if (state.get() === 0) {
-              animate(state, 1, {
-                duration: 0.8,
-                ease: "easeInOut",
-              });
-            } else if (state.get() === 1) {
-              animate(state, 0, {
-                duration: 0.8,
-                ease: "easeInOut",
-              });
-            }
-          }
-          {
-            if (velocity > 0) {
-              animate(state, 0, {
-                duration: 0.8,
-                ease: "easeInOut",
-              });
-            } else if (velocity < 0) {
-              animate(state, 1, {
-                duration: 0.8,
-                ease: "easeInOut",
-              });
-            }
-          }
-        }}
+        onClick={toggleAnimation}
         width="200"
         height="200"
         viewBox="2 2 20 20"
