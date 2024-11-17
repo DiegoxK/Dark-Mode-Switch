@@ -17,7 +17,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="flex min-h-screen flex-col justify-center">
+      <body className="flex min-h-screen flex-col justify-center bg-slate-300">
         <TRPCReactProvider>
           <nav className="flex gap-2 p-4">
             <Link href="/">Animations</Link>
@@ -28,6 +28,7 @@ export default function RootLayout({
             <Link href="/switch">Switch</Link>
             <Link href="/click-morph">Click Morph</Link>
             <Link href="/switch-morph">Switch Morph</Link>
+            <Link href="/dark-switch">Dark Switch</Link>
           </nav>
           <main className="flex grow flex-col items-center justify-center">
             {children}
