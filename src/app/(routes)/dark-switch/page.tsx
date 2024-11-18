@@ -40,44 +40,37 @@ export default function Home() {
     },
   };
 
-  const cloudVariants: Variants = {
-    sun: {
-      bottom: "-19px",
-      right: "-22px",
-    },
-    moonRight: {
-      right: "-80px",
-    },
-    moonLeft: {
-      left: "-220px",
-    },
-  };
-
   return (
     <motion.div
       variants={bgVariants}
       animate={isOn ? "moon" : "sun"}
       onClick={toggleSwitch}
       className={cn(
-        "relative flex w-[130px] cursor-pointer rounded-full",
+        "relative flex w-[130px] cursor-pointer overflow-hidden rounded-full",
         isOn ? "justify-end" : "justify-start",
       )}
     >
       <MotionCloud
         initial={false}
-        variants={cloudVariants}
-        animate={isOn ? "moonRight" : "sun"}
-        className="absolute rotate-[4deg] fill-white/20"
+        animate={isOn ? { x: 200 } : { x: 0 }}
+        className="absolute bottom-[-19px] right-[-22px] rotate-[4deg] fill-white/20"
       />
       <MotionCloud
         initial={false}
-        variants={cloudVariants}
-        animate={isOn ? "moonRight" : "sun"}
+        animate={isOn ? { x: 200 } : { x: 0 }}
         className="absolute bottom-[-25px] right-0 fill-white"
       />
-      <MotionCloud className="absolute bottom-[-18px] left-0 rotate-[-5deg] fill-white/20" />
+      <MotionCloud
+        initial={false}
+        animate={isOn ? { x: -200 } : { x: 0 }}
+        className="absolute bottom-[-18px] left-0 rotate-[-5deg] fill-white/20"
+      />
 
-      <MotionCloud className="absolute bottom-[-32px] left-[-18px] rotate-[-14deg] fill-white" />
+      <MotionCloud
+        initial={false}
+        animate={isOn ? { x: -200 } : { x: 0 }}
+        className="absolute bottom-[-32px] left-[-18px] rotate-[-14deg] fill-white"
+      />
       <motion.div
         layout
         variants={frVariants}
