@@ -7,7 +7,7 @@ import { useState } from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "tailwind.config";
 import type { Variants } from "framer-motion";
-import { MotionCloud } from "@/components/vectors";
+import { MotionCloud, MotionStar } from "@/components/vectors";
 
 const twColors = resolveConfig(tailwindConfig).theme.colors;
 
@@ -25,7 +25,7 @@ export default function Home() {
       background: "linear-gradient(#77BDFF, #A2D1FD)",
     },
     moon: {
-      backgroundColor: twColors.slate[300],
+      background: "linear-gradient(#172532, #161F26)",
     },
   };
 
@@ -36,7 +36,7 @@ export default function Home() {
       boxShadow: "inset 0 4px 4px 0 #FFFFFFC",
     },
     moon: {
-      backgroundColor: twColors.slate[500],
+      backgroundColor: "#D1D6DB",
     },
   };
 
@@ -61,9 +61,17 @@ export default function Home() {
           stiffness: 600,
           damping: 37,
         }}
-        className="m-[6px] flex h-10 w-10 items-center justify-center rounded-full"
+        className={cn(
+          "m-[6px] flex h-10 w-10 items-center justify-center rounded-full",
+          isOn && "items-start justify-normal",
+        )}
       >
-        <motion.div layout className="h-[33px] w-[33px] rounded-full" />
+        <motion.div
+          layout
+          initial={false}
+          animate={isOn ? { opacity: 100 } : { opacity: 0 }}
+          className="h-[33px] w-[33px] rounded-full bg-[#44505F]"
+        />
       </motion.div>
     </motion.div>
   );
@@ -97,10 +105,10 @@ const Clouds = ({ isOn }: { isOn: boolean }) => {
   );
 };
 
-const Stars = () => {
+const Stars = ({ isOn }: { isOn: boolean }) => {
   return (
     <>
-    <MotionStar
+      <MotionStar className="fill-[#CDD2D8]" />
     </>
-  )
-}
+  );
+};
