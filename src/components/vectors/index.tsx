@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { forwardRef, type ReactNode, type SVGProps } from "react";
+import { forwardRef, type SVGProps } from "react";
 
 type IProps = SVGProps<SVGSVGElement>;
 
@@ -21,7 +21,25 @@ const Cloud = forwardRef<SVGSVGElement, IProps>((props, ref) => {
     </svg>
   );
 });
-
 Cloud.displayName = "Cloud";
-
 export const MotionCloud = motion(Cloud);
+
+const Star = forwardRef<SVGSVGElement, IProps>((props, ref) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="3"
+      height="3"
+      viewBox="0 0 3 3"
+      {...props}
+    >
+      <path
+        d="M1.987 1.013 1.5 0l-.487 1.013L0 1.5l1.013.487L1.5 3l.487-1.013L3 1.5z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      />
+    </svg>
+  );
+});
+Star.displayName = "star";
+export const StarCloud = motion(Star);
