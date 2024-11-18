@@ -26,6 +26,7 @@ export default function Home() {
     },
     moon: {
       background: "linear-gradient(#172532, #161F26)",
+      boxShadow: "inset 0 4px 4px 0 #0000003F",
     },
   };
 
@@ -37,21 +38,27 @@ export default function Home() {
     },
     moon: {
       backgroundColor: "#D1D6DB",
+      boxShadow: "0 1px 10px 0 #D7DADD3F",
     },
   };
 
   return (
     <motion.div
+      initial={false}
       variants={bgVariants}
       animate={isOn ? "moon" : "sun"}
       onClick={toggleSwitch}
       className={cn(
-        "relative flex w-[130px] cursor-pointer overflow-hidden rounded-full",
+        "relative flex w-[125px] cursor-pointer overflow-hidden rounded-full",
         isOn ? "justify-end" : "justify-start",
       )}
     >
       <Clouds isOn={isOn} />
-      <MotionStars className="fill-[#CDD2D8]" />
+      <MotionStars
+        initial={false}
+        animate={isOn ? { opacity: 100 } : { opacity: 0 }}
+        className="absolute left-[12px] top-[8px] fill-[#CDD2D8]"
+      />
       <motion.div
         layout
         variants={frVariants}
@@ -70,7 +77,10 @@ export default function Home() {
           layout
           initial={false}
           animate={isOn ? { opacity: 100 } : { opacity: 0 }}
-          className="h-[33px] w-[33px] rounded-full bg-[#44505F]"
+          style={{
+            boxShadow: "0 1px 10px 0 #D7DADD3F",
+          }}
+          className="m-[0.8px] h-[33px] w-[33px] rounded-full bg-[#44505F]"
         />
       </motion.div>
     </motion.div>
