@@ -42,4 +42,4 @@ const Star = forwardRef<SVGSVGElement, IProps>((props, ref) => {
   );
 });
 Star.displayName = "star";
-export const StarCloud = motion(Star);
+export const MotionStar = motion(Star);
