@@ -7,7 +7,7 @@ import { useState } from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "tailwind.config";
 import type { Variants } from "framer-motion";
-import { MotionCloud, MotionStar } from "@/components/vectors";
+import { MotionCloud, MotionStars } from "@/components/vectors";
 
 const twColors = resolveConfig(tailwindConfig).theme.colors;
 
@@ -51,7 +51,7 @@ export default function Home() {
       )}
     >
       <Clouds isOn={isOn} />
-      <Stars isOn={isOn} />
+      <MotionStars className="fill-[#CDD2D8]" />
       <motion.div
         layout
         variants={frVariants}
@@ -101,14 +101,6 @@ const Clouds = ({ isOn }: { isOn: boolean }) => {
         animate={isOn ? { x: -200 } : { x: 0 }}
         className="absolute bottom-[-32px] left-[-18px] rotate-[-14deg] fill-white"
       />
-    </>
-  );
-};
-
-const Stars = ({ isOn }: { isOn: boolean }) => {
-  return (
-    <>
-      <MotionStar className="fill-[#CDD2D8]" />
     </>
   );
 };
