@@ -50,6 +50,28 @@ export default function Home() {
         isOn ? "justify-end" : "justify-start",
       )}
     >
+      <Clouds isOn={isOn} />
+      <Stars isOn={isOn} />
+      <motion.div
+        layout
+        variants={frVariants}
+        animate={isOn ? "moon" : "sun"}
+        transition={{
+          type: "spring",
+          stiffness: 600,
+          damping: 37,
+        }}
+        className="m-[6px] flex h-10 w-10 items-center justify-center rounded-full"
+      >
+        <motion.div layout className="h-[33px] w-[33px] rounded-full" />
+      </motion.div>
+    </motion.div>
+  );
+}
+
+const Clouds = ({ isOn }: { isOn: boolean }) => {
+  return (
+    <>
       <MotionCloud
         initial={false}
         animate={isOn ? { x: 200 } : { x: 0 }}
@@ -71,19 +93,14 @@ export default function Home() {
         animate={isOn ? { x: -200 } : { x: 0 }}
         className="absolute bottom-[-32px] left-[-18px] rotate-[-14deg] fill-white"
       />
-      <motion.div
-        layout
-        variants={frVariants}
-        animate={isOn ? "moon" : "sun"}
-        transition={{
-          type: "spring",
-          stiffness: 600,
-          damping: 37,
-        }}
-        className="m-[6px] flex h-10 w-10 items-center justify-center rounded-full"
-      >
-        <motion.div layout className="h-[33px] w-[33px] rounded-full" />
-      </motion.div>
-    </motion.div>
+    </>
   );
+};
+
+const Stars = () => {
+  return (
+    <>
+    <MotionStar
+    </>
+  )
 }
