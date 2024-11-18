@@ -24,22 +24,22 @@ const Cloud = forwardRef<SVGSVGElement, IProps>((props, ref) => {
 Cloud.displayName = "Cloud";
 export const MotionCloud = motion(Cloud);
 
-const Star = forwardRef<SVGSVGElement, IProps>((props, ref) => {
+const Stars = forwardRef<SVGSVGElement, IProps>((props, ref) => {
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="3"
-      height="3"
-      viewBox="0 0 3 3"
+      width="57"
+      height="37"
+      viewBox="0 0 57 37"
       {...props}
     >
-      <path
-        d="M1.987 1.013 1.5 0l-.487 1.013L0 1.5l1.013.487L1.5 3l.487-1.013L3 1.5z"
-        clipRule="evenodd"
-        fillRule="evenodd"
-      />
+      <g clipRule="evenodd" fillRule="evenodd">
+        <path d="M16.663 4.338 16.5 4l-.162.338L16 4.5l.338.162L16.5 5l.162-.338L17 4.5zm-16.001 17L.5 21l-.162.338L0 21.5l.338.163L.5 22l.162-.337L1 21.5zm4 9L4.5 30l-.162.338L4 30.5l.338.163L4.5 31l.162-.337L5 30.5zm9.001-19L13.5 11l-.162.338L13 11.5l.338.162.162.338.162-.338L14 11.5zm-8.001-7L5.5 4l-.162.338L5 4.5l.338.162L5.5 5l.162-.338L6 4.5zm14.001 23L19.5 27l-.162.338L19 27.5l.338.163.162.337.162-.337L20 27.5zm16-2L35.5 25l-.162.338L35 25.5l.338.163.162.337.162-.337L36 25.5zm-1-10L34.5 15l-.162.338L34 15.5l.338.162.162.338.162-.338L35 15.5zm9-8L43.5 7l-.162.338L43 7.5l.338.162L43.5 8l.162-.338L44 7.5zm7-5L50.5 2l-.162.338L50 2.5l.338.162L50.5 3l.162-.338L51 2.5zm-15-1L35.5 1l-.162.338L35 1.5l.338.162L35.5 2l.162-.338L36 1.5zM24.987 18.013 24.5 17l-.487 1.013L23 18.5l1.013.488L24.5 20l.487-1.012L26 18.5z" />
+        <path d="M24.987 18.013 24.5 17l-.487 1.013L23 18.5l1.013.488L24.5 20l.487-1.012L26 18.5zm-14 1L10.5 18l-.487 1.013L9 19.5l1.013.488L10.5 21l.487-1.012L12 19.5zm-9-8L1.5 10l-.487 1.013L0 11.5l1.013.488L1.5 13l.487-1.012L3 11.5zm25-10L26.5 0l-.487 1.013L25 1.5l1.013.487L26.5 3l.487-1.013L28 1.5zm15 30L41.5 30l-.487 1.013L40 31.5l1.013.488L41.5 33l.487-1.012L43 31.5zm14-22L55.5 8l-.487 1.013L54 9.5l1.013.487L55.5 11l.487-1.013L57 9.5zm-44 26L11.5 34l-.487 1.013L10 35.5l1.013.487L11.5 37l.487-1.013L13 35.5zM29.325 9.675 29 9l-.325.675L28 10l.675.325L29 11l.325-.675L30 10zm-1 23L28 32l-.325.675L27 33l.675.325L28 34l.325-.675L29 33zm16-16L44 16l-.325.675L43 17l.675.325L44 18l.325-.675L45 17z" />
+      </g>
     </svg>
   );
 });
-Star.displayName = "star";
-export const MotionStar = motion(Star);
+Stars.displayName = "star";
+export const MotionStars = motion(Stars);
