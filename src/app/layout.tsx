@@ -17,7 +17,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="flex min-h-screen flex-col justify-center bg-slate-300">
+      <body className="flex min-h-screen flex-col justify-center bg-sky-100">
         <TRPCReactProvider>
           <nav className="flex gap-2 p-4">
             <Link href="/">Animations</Link>
