@@ -77,8 +77,11 @@ export default function Home() {
           layout
           initial={false}
           animate={isOn ? { opacity: 100 } : { opacity: 0 }}
+          transition={{
+            ease: "easeInOut",
+          }}
           style={{
-            boxShadow: "0 1px 10px 0 #D7DADD3F",
+            boxShadow: "0 0 4px 0 #44505F3F",
           }}
           className="m-[0.8px] h-[33px] w-[33px] rounded-full bg-[#44505F]"
         />
@@ -92,24 +95,36 @@ const Clouds = ({ isOn }: { isOn: boolean }) => {
     <>
       <MotionCloud
         initial={false}
-        animate={isOn ? { x: 200 } : { x: 0 }}
+        transition={{
+          ease: "easeInOut",
+        }}
+        animate={isOn ? { x: 100 } : { x: 0 }}
         className="absolute bottom-[-19px] right-[-22px] rotate-[4deg] fill-white/20"
       />
       <MotionCloud
         initial={false}
-        animate={isOn ? { x: 200 } : { x: 0 }}
+        transition={{
+          ease: "easeInOut",
+        }}
+        animate={isOn ? { x: 100 } : { x: 0 }}
         className="absolute bottom-[-25px] right-0 fill-white"
       />
       <MotionCloud
         initial={false}
-        animate={isOn ? { x: -200 } : { x: 0 }}
+        transition={{
+          ease: "easeInOut",
+        }}
+        animate={isOn ? { x: -100 } : { x: 0 }}
         className="absolute bottom-[-18px] left-0 rotate-[-5deg] fill-white/20"
       />
 
       <MotionCloud
         initial={false}
-        animate={isOn ? { x: -200 } : { x: 0 }}
-        className="absolute bottom-[-32px] left-[-18px] rotate-[-14deg] fill-white"
+        transition={{
+          ease: "easeInOut",
+        }}
+        animate={isOn ? { x: -100 } : { x: 0 }}
+        className="absolute bottom-[-32px] left-[-12px] rotate-[-14deg] fill-white"
       />
     </>
   );
