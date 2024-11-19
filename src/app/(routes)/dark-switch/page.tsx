@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import * as motion from "framer-motion/client";
 import { useState } from "react";
+import { useTheme } from "next-themes";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "tailwind.config";
@@ -13,9 +14,15 @@ const twColors = resolveConfig(tailwindConfig).theme.colors;
 
 export default function Home() {
   const [isOn, setIsOn] = useState(false);
+  const { setTheme } = useTheme();
 
   const toggleSwitch = () => {
     setIsOn((prev) => {
+      if (prev) {
+        setTheme("light");
+      } else {
+        setTheme("dark");
+      }
       return !prev;
     });
   };
