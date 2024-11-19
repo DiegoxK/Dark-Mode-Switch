@@ -38,7 +38,7 @@ export default function Home() {
     },
     moon: {
       backgroundColor: "#D1D6DB",
-      boxShadow: "0 1px 10px 0 #D7DADD3F",
+      boxShadow: "0 1px 10px 3px #D7DADD3F",
     },
   };
 
