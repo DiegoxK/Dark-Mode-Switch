@@ -57,6 +57,9 @@ export default function Home() {
       <MotionStars
         initial={false}
         animate={isOn ? { opacity: 100 } : { opacity: 0 }}
+        transition={{
+          ease: "backOut",
+        }}
         className="absolute left-[12px] top-[8px] fill-[#CDD2D8]"
       />
       <motion.div
@@ -65,20 +68,17 @@ export default function Home() {
         animate={isOn ? "moon" : "sun"}
         transition={{
           type: "spring",
-          stiffness: 600,
-          damping: 37,
+          stiffness: 250,
+          damping: 25,
         }}
-        className={cn(
-          "m-[6px] flex h-10 w-10 items-center justify-center rounded-full",
-          isOn && "items-start justify-normal",
-        )}
+        className="m-[6px] flex h-10 w-10 items-start justify-normal rounded-full"
       >
         <motion.div
           layout
           initial={false}
           animate={isOn ? { opacity: 100 } : { opacity: 0 }}
           transition={{
-            ease: "easeInOut",
+            ease: "backOut",
           }}
           style={{
             boxShadow: "0 0 4px 0 #44505F3F",
@@ -94,37 +94,42 @@ const Clouds = ({ isOn }: { isOn: boolean }) => {
   return (
     <>
       <MotionCloud
-        initial={false}
+        initial={{
+          rotate: 4,
+        }}
         transition={{
           ease: "easeInOut",
         }}
-        animate={isOn ? { x: 100 } : { x: 0 }}
-        className="absolute bottom-[-19px] right-[-22px] rotate-[4deg] fill-white/20"
+        animate={isOn ? { x: 60, y: 15 } : { x: 0, y: 0 }}
+        className="absolute bottom-[-19px] right-[-22px] fill-white/20"
       />
       <MotionCloud
         initial={false}
         transition={{
           ease: "easeInOut",
         }}
-        animate={isOn ? { x: 100 } : { x: 0 }}
+        animate={isOn ? { x: 80, y: 15 } : { x: 0, y: 0 }}
         className="absolute bottom-[-25px] right-0 fill-white"
       />
       <MotionCloud
-        initial={false}
+        initial={{
+          rotate: -5,
+        }}
         transition={{
           ease: "easeInOut",
         }}
-        animate={isOn ? { x: -100 } : { x: 0 }}
-        className="absolute bottom-[-18px] left-0 rotate-[-5deg] fill-white/20"
+        animate={isOn ? { x: -80, y: 15 } : { x: 0, y: 0 }}
+        className="absolute bottom-[-18px] left-0 fill-white/20"
       />
-
       <MotionCloud
-        initial={false}
+        initial={{
+          rotate: -14,
+        }}
         transition={{
           ease: "easeInOut",
         }}
-        animate={isOn ? { x: -100 } : { x: 0 }}
-        className="absolute bottom-[-32px] left-[-12px] rotate-[-14deg] fill-white"
+        animate={isOn ? { x: -56, y: 15 } : { x: 0, y: 0 }}
+        className="absolute bottom-[-32px] left-[-22px] fill-white"
       />
     </>
   );
