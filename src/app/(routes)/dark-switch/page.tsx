@@ -10,8 +10,6 @@ import tailwindConfig from "tailwind.config";
 import type { Variants } from "framer-motion";
 import { MotionCloud, MotionStars } from "@/components/vectors";
 
-const twColors = resolveConfig(tailwindConfig).theme.colors;
-
 export default function Home() {
   const [isOn, setIsOn] = useState(false);
   const { setTheme } = useTheme();
