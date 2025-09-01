@@ -5,8 +5,6 @@ import * as motion from "framer-motion/client";
 import { useState } from "react";
 import { useTheme } from "next-themes";
 
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "tailwind.config";
 import type { Variants } from "framer-motion";
 import { MotionCloud, MotionStars } from "@/components/vectors";
 

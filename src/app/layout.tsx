@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col justify-center">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
 
           // disableTransitionOnChange
